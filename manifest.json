@@ -1,0 +1,29 @@
+{
+    "name": "TripAdvisorHack",
+    "short_name": "TripAdvisorHack",
+    "description": "TripAdvisorHack",
+    "version": "0.1",
+    "permissions": [ "cookies", "tabs", "http://*/*", "https://*/*", "background" ],
+    "icons": { "48": "icon_cookie48.png", "128": "icon_cookie128.png" },
+    "browser_action": {
+        "default_icon": "icon_cookie.png"
+    },
+    "externally_connectable": {
+        //"matches": ["*://*.allvisio.com/*"]
+        "matches": ["*://allvisio.com/*"]
+        //To be update with your Back office adresse
+    },
+    "content_scripts": [
+        {
+            //jQuery including
+            "run_at": "document_idle",
+            "matches": ["*://*.tripadvisor.com/*"],
+            "js": ["jquery.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "manifest_version": 2
+}
